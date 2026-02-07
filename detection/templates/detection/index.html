@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helmet Detection System</title>
+</head>
+<body>
+    <h2>Helmet Detection + OCR</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if helmet_status %}
+        <h3>{{ helmet_status }}</h3>
+        <p><b>Extracted Text:</b> {{ extracted_text }}</p>
+        <img src="{{ result_image }}" width="400">
+    {% endif %}
+</body>
+</html>
